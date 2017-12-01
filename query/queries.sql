@@ -15,27 +15,40 @@ select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from dr
 |          4.590152 |           0.015207 | 36256.37779020882 | 238421940.3484132 |
 +-------------------+--------------------+-------------------+-------------------+
 
-mysql> select round(sum(eth),4) as eth, round(sum(btc),4) as btc, round(sum(perc),4) as percent, round(sum(dragons),4) as dragons from drgn_audit where exception = 'yes';
+select round(sum(eth),4) as eth, round(sum(btc),4) as btc, round(sum(perc),4) as percent, round(sum(dragons),4) as dragons from drgn_audit where exception = 'yes';
 +----------+----------+---------+---------------+
 | eth      | btc      | percent | dragons       |
 +----------+----------+---------+---------------+
 | 727.8760 | 124.8444 |  6.9723 | 16623543.4208 |
 +----------+----------+---------+---------------+
 
-mysql> select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from drgn_audit where dragons < 10000000 and eth > 0.0;
+select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from drgn_audit where dragons < 10000000 and eth > 0.0;
 +-------------------+--------------------+--------------------+--------------------+
 | round(avg(eth),6) | round(avg(perc),6) | avg(dragons)       | sum(dragons)       |
 +-------------------+--------------------+--------------------+--------------------+
 |          4.663189 |           0.011101 | 26467.122675540268 | 150889066.37325507 |
 +-------------------+--------------------+--------------------+--------------------+
 
-mysql> select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from drgn_audit where eth > 0.0;                       
+select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from drgn_audit where eth > 0.0;                       
 +-------------------+--------------------+--------------------+--------------------+
 | round(avg(eth),6) | round(avg(perc),6) | avg(dragons)       | sum(dragons)       |
 +-------------------+--------------------+--------------------+--------------------+
 |          5.293728 |           0.012446 | 29673.434418319026 | 169197923.05325508 |
 +-------------------+--------------------+--------------------+--------------------+
 
+select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from drgn_audit where dragons < 10000000 and eth = 0.0;
++-------------------+--------------------+-------------------+------------------+
+| round(avg(eth),6) | round(avg(perc),6) | avg(dragons)      | sum(dragons)     |
++-------------------+--------------------+-------------------+------------------+
+|          0.000000 |           0.027033 | 64452.04252595498 | 56266633.1251587 |
++-------------------+--------------------+-------------------+------------------+
+
+select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from drgn_audit where eth = 0.0;    
++-------------------+--------------------+-------------------+-------------------+
+| round(avg(eth),6) | round(avg(perc),6) | avg(dragons)      | sum(dragons)      |
++-------------------+--------------------+-------------------+-------------------+
+|          0.000000 |           0.033220 | 79203.68111574235 | 69224017.29515882 |
++-------------------+--------------------+-------------------+-------------------+
 
 
 mysql> select * from drgn where eth_address like '0xe021a7ad570d445875c394a774eb43f48c50dbde' \G
