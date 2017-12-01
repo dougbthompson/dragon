@@ -2,7 +2,25 @@
 select source_type, count(1) from drgn_audit group by 1 order by 2 desc;
 
 select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from drgn_audit where dragons < 10000000;
++-------------------+--------------------+--------------------+--------------------+
+| round(avg(eth),6) | round(avg(perc),6) | avg(dragons)       | sum(dragons)       |
++-------------------+--------------------+--------------------+--------------------+
+|          4.043936 |           0.013217 | 31511.362868636013 | 207155699.49841315 |
++-------------------+--------------------+--------------------+--------------------+
+
 select round(avg(eth),6), round(avg(perc),6), avg(dragons), sum(dragons) from drgn_audit;
++-------------------+--------------------+-------------------+-------------------+
+| round(avg(eth),6) | round(avg(perc),6) | avg(dragons)      | sum(dragons)      |
++-------------------+--------------------+-------------------+-------------------+
+|          4.590152 |           0.015207 | 36256.37779020882 | 238421940.3484132 |
++-------------------+--------------------+-------------------+-------------------+
+
+mysql> select round(sum(eth),4) as eth, round(sum(btc),4) as btc, round(sum(perc),4) as percent, round(sum(dragons),4) as dragons from drgn_audit where exception = 'yes';
++----------+----------+---------+---------------+
+| eth      | btc      | percent | dragons       |
++----------+----------+---------+---------------+
+| 727.8760 | 124.8444 |  6.9723 | 16623543.4208 |
++----------+----------+---------+---------------+
 
 mysql> select * from drgn where eth_address like '0xe021a7ad570d445875c394a774eb43f48c50dbde' \G
 *************************** 1. row ***************************
