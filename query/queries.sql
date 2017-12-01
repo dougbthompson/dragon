@@ -104,3 +104,15 @@ mysql> select eth_address, count(1) as cnt from drgn_audit group by 1 order by 2
 | 0xbc5204c8347c24f3d68c2f2b03334c7f4875e14f |   5 |
 +--------------------------------------------+-----+
 
+select eth_address, count(1) as cnt from drgn_audit group by 1 having cnt > 1 order by 2 desc;
++--------------------------------------------+-----+
+...
+| 0x78d8e8807f652b54afe33b7645a26c5ffae5291c |   2 |
+| 0x6b988ddade91196a2e12ce00e5bfad590262c132 |   2 |
+| 0x9c46eb062ef05a3a321d2d060ed5ac6f85246b6d |   2 |
+| 0x9169682d2ab1d6312cbb18577b231c0bec2f6d0d |   2 |
+| 0xcc29229739c3d33f017947a6e274697433135711 |   2 |
++--------------------------------------------+-----+
+904 rows in set (0.05 sec)
+
+
